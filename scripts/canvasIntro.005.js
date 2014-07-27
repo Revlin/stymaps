@@ -395,7 +395,8 @@ canvasApp.push( function() {
 	
 	var mouseHit = function mouseHit(event) { 
 		mouse_x = (event.clientX - cv_pos.left + doc.scrollLeft()) * cv_w; 
-		mouse_y = (event.clientY - cv_pos.top + doc.scrollTop()) * cv_h; Debugger.log('mouse coords captured'); 
+		mouse_y = (event.clientY - cv_pos.top + doc.scrollTop()) * cv_h; 
+		//Debugger.log('mouse coords captured'); 
 	} 
 	
 	if ('ontouchmove' in document.createElement('div')) { 
@@ -467,4 +468,3 @@ canvasApp.push( function() {
 		Debugger.log('drawLoop failed to start'); 
 	} 
 });
-

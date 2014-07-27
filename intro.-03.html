@@ -91,12 +91,11 @@ function init_processing() {
            <br/>space, time, love, and perception.</h4>
          </div>
        </canvas>
-       <canvas id='can23' width='480' height='270' style="image-rendering:optimizespeed ! important;"></canvas>
+       <canvas id='can23' width='480' height='270' style="width:640px; height:360px; image-rendering:optimizespeed ! important;"></canvas>
     </div>
 	<div id="play_controls" style="width:100%">
-		<a href="javascript:recordGIF ()">Record GIF</a>
-		<p class="menulinkleft"><a href="intro.006.html">&lt;&lt;</a></p>
-		<p class="menulinkright"><a href="intro.004.html">&gt;&gt;</a></p>
+		<p class="menulinkleft"><a href="intro.-02.html">&lt;&lt;</a></p>
+		<p class="menulinkright"><a href="intro.-04.html">&gt;&gt;</a></p>
 	</div>
 
     <p id="vstatus"></p>
@@ -106,13 +105,13 @@ function init_processing() {
 	</p>
 
 	<div id="stream">
-		<!--a href="http://www.w3.org/2010/05/video/mediaevents.html" target="_blank">Media Help</a--><br />     
-		<!--video id="vid1" class="standard" style="/*visibility: hidden;*/" preload="auto"  muted="true"><source src="video/revlin_john.mp4" /><source src="video/revlin_john.ogv" /></video-->
-		<audio id="aud1" class="standard" style="/*visibility: hidden;*/" preload="auto" autoplay=""><source src="audio/attention.mp3" /><source src="audio/attention.ogg" /></audio>
+		<a href="http://www.archive.org/download/DrawLuck/strechin.mp3"><audio id="aud1" autoplay="true"><source src="http://www.archive.org/download/DrawLuck/strechin.mp3"></source><source src="http://www.archive.org/download/DrawLuck/strechin.ogg"></source></audio></a><a href="http://www.archive.org/download/DrawLuck/drawluck.mp4"><video id="vid1" style="visibility: hidden; display: none;" loop="true"><source src="http://www.archive.org/download/DrawLuck/drawluck.mp4"></source><source src="http://www.archive.org/download/DrawLuck/drawluck.ogv"></source></video></a>
 	</div>
 
-<script type='text/javascript' src="scripts/canvasIntro.005.js"></script>
-	
+<script src='scripts/processing-1.0.0.js' type='text/javascript'></script>
+<script type='text/javascript'>/*<![CDATA[*/  /*Initiate Processing.js*/ init_processing(); /*]]>*/</script>
+<script type="application/processing" target='can23'>PFont font_arial = loadFont("Arial"); String stitle = "The Stylogical Map"; int size_title = 64; String sdesc[] = new String[4]; int size_desc = 16; int txtfill; int clkX; int clkY; boolean mouseplay = true; boolean vidstart = true; int drawCycle; void setup() { size(640,360); frameRate(29.9); background(0); txtfill = 0; sdesc[0] = "A presentation of various works-in-progress,"; sdesc[1] = "exploring the omni-media vortex of"; sdesc[2] = "space, time, love, and perception."; sdesc[3] = "PLAY ME "; clkX = width/2; clkY = height/2; drawCycle = 45; link("javascript:loop_video('vid1','true')"); link("javascript:pause_video('vid1')"); } void draw() { if (vidstart) { if (txtfill < 200) txtfill = 1 + txtfill*(4/3); fill(txtfill); centerText(stitle, font_arial, 64, 64); fill(txtfill/2); int tlen = sdesc.length; for(int i = 0; i < tlen; i++) { centerText(sdesc[i], font_arial, 14, (127 + i*20)); } } noSmooth(); noFill(); stroke((clkX/4),(clkY/127),(clkX/64-clkX/4)); if (drawCycle > 0) { ellipse((clkX/(46-drawCycle)), (height/2), (width/2 - clkX/(46-drawCycle)), (clkY/(46-drawCycle))); drawCycle -= 1; } else { drawCycle = 45; } } void centerText(String txt, PFont fontA, int font_size, int yplace) { textFont(fontA, font_size); int txt_lnt = txt.length(); int xplace = (width/2) - (txt_lnt*(2*font_size/8)); text(txt, xplace, yplace); } void mouseMoved() { clkX = mouseX; clkY = mouseY; if (!vidstart) { if (clkY > (height/2)) { mouseplay = true; } else { mouseplay = false } } } void mousePressed() { drawCycle = 0; if (!vidstart) { float jogS = (mouseX - width/2) * 0.006; link("javascript:jogSong('invisible10'," + jogS + ")"); if (mouseplay) { link("javascript:loop_video('vid1','true')"); } else { link("javascript:loop_video('vid2','true')"); } } else { link("javascript:loop_AB('vid1', 0, 0)"); link("javascript:mute_video('vid1')"); vidstart = false; } }</script>
+
 <script type="text/javascript" src="jsgif/LZWEncoder.js"></script>
 <script type="text/javascript" src="jsgif/NeuQuant.js"></script>
 <script type="text/javascript" src="jsgif/GIFEncoder.js"></script>

@@ -116,8 +116,8 @@ div#header-canvas canvas {
 
 canvas#can23 {
   display: 			none;
-  width: 			455px;
-  height: 			256px;
+  width: 			640px;
+  height: 			360px;
   position:			relative;
   margin-left: 		0;
   opacity:			0.25; filter: alpha(opacity=.25);

@@ -98,7 +98,7 @@ canvasApp = function canvasApp () {
   var canvas = $("canvas#cv")[0];
   var can23;
   if (typeof processing !== 'undefined') {
-    can23 = $("canvas#can23").css({marginTop: p_offset+"px", marginLeft: "186px",display: "block"}).insertAfter(canvas)[0];
+    can23 = $("canvas#can23").css({marginTop:-$("canvas#cv").height()+"px", display: "block"}).insertAfter(canvas)[0];
     $(can23).after( $('#click_div').css("margin-top", "-196px") );
   }
 
@@ -144,7 +144,7 @@ canvasApp = function canvasApp () {
 
         } else {
           //ctx.globalAlpha = 0.5;
-          ctx.drawImage(can23, 0, 0, canvas.width, canvas.height);
+          ctx.drawImage(can23, 0, 0, 640, 360);
           ctx.lineWidth = 2;
           ctx.strokeStyle = "#fff";
           ctx.font = "bold 52px Verdana";
