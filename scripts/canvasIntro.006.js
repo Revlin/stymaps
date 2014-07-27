@@ -358,16 +358,16 @@ canvasApp.push( function() {
           ctx.clearRect(0,0,w,h);
         }
         if (typeof t2.p !== 'number') t2 = {drawScreen : drawTitle}; 
-        t2.drawScreen(w, h, 'drawTitle3', [':GSs:'], '::GSs @ Netention.Org::');
+        t2.drawScreen(w, h, 'drawTitle3', [':GSs:'], '::GSs @ Global-Survival.Org::');
         ctx.drawImage(t2.c.canvas, 0, 0);
         if ('ontouchmove' in document.createElement('div'))  {
           cv.bind('touchstart', function(e){
             e.preventDefault();
-            window.location.replace("http://netention.org");
+            window.location.replace("http://global-survival.org");
           });
         } else {
           cv.bind('mousedown', function(e) {
-            window.location.replace("http://netention.org");  
+            window.location.replace("http://global-survival.org");  
           });
         }
       }
